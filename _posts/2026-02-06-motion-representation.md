@@ -32,6 +32,32 @@ Operations:
 4. if not from `humanact12`: from `x,z,y` to `-x,z,y`
 5. augmentation: `data_m = swap_left_right(data)`, and save both data and data_m
 
-Conclusion:
+## perform ***raw_pose_processing.ipynb*** for AIST++
 
-if you want to perform `raw_pose_processing.ipynb` for AIST++, a simple way is to 
+AIST++ is Y-up!
+ - directly use the following script:
+
+```python
+from smplx import SMPL
+
+smpl = SMPL(model_path="", gender="neutral", num_betas=10).to("cuda")
+    
+
+def process_single(pos, q):
+    """
+    pos: numpy array, shape (seq_len, 3) - root positions
+    q: numpy array, shape (seq_len, 72) - joint rotations
+    """ 
+    
+    device = next(smpl.parameters()).device  # cuda:0
+    root_pos = torch.as_tensor(pos, dtype=torch.float32, device=device)  
+    local_q  = torch.as_tensor(q,   dtype=torch.float32, device=device)  
+    print(local_q.shape)
+    
+    positions = smpl.forward(global_orient=local_q[:, :3], body_pose=local_q[:, 3:], transl=root_pos)
+    
+    joints = positions.joints
+    return positions_downsampled.detach().cpu().numpy()
+```
+
+Also remember to calculate mean and variance for AIST++ dataset!
