@@ -41,7 +41,10 @@ AIST++ is Y-up!
 from smplx import SMPL
 
 smpl = SMPL(model_path="", gender="neutral", num_betas=10).to("cuda")
-    
+
+# load data from .pkl file
+pos = data['smpl_trans']
+q = data['smpl_poses']
 
 def process_single(pos, q):
     """
