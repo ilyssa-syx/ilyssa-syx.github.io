@@ -1,3 +1,8 @@
 title: Yixuan Sun
-description: Notes on motion, multimodal learning, and research.
+description: Motion Generation / Multimodal / Research notes
 theme: minima
+
+# 让 Markdown 更标准（GitHub Pages 默认也常用这个）
+markdown: kramdown
+kramdown:
+  input: GFM

@@ -18,7 +18,7 @@ title: "Motion Representation Summary"
 `smpl.forward()` also gets 3d joints positions, global coordinate, not relative to pelvis
 
 
-## ***raw_pose_processing.ipynb*** in [HumanML3D](https://github.com/EricGuo5513/HumanML3D) Repo
+## *raw_pose_processing.ipynb* in [HumanML3D](https://github.com/EricGuo5513/HumanML3D) Repo
 
 Input: SMPL(-H)
 
@@ -32,7 +32,7 @@ Operations:
 4. if not from `humanact12`: from `x,z,y` to `-x,z,y`
 5. augmentation: `data_m = swap_left_right(data)`, and save both data and data_m
 
-## perform ***raw_pose_processing.ipynb*** for AIST++
+## perform *raw_pose_processing.ipynb* for AIST++
 
 AIST++ is Y-up!
  - directly use the following script:
@@ -64,3 +64,4 @@ def process_single(pos, q):
 ```
 
 Also remember to calculate mean and variance for AIST++ dataset!
+
