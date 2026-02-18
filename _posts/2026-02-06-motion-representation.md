@@ -65,3 +65,7 @@ def process_single(pos, q):
 
 Also remember to calculate mean and variance for AIST++ dataset!
 
+## PoseScript
+
+PoseScript take *z-up SMPL*
+
